@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+    <!-- {% block title %}Project Raven{% endblock %} -->
+{% block content %}
+
+<table class="center">
+    <tr>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+        <th scope="col">Location</th>
+        <th scope="col">County</th>
+        <!-- <th scope="col">Occupation</th> -->
+        <th scope="col">Description</th>
+    </tr>
+    {% for event in events %}
+    <tr>
+        <td>{{ event.date }}</td>
+        <td>{{ event.time }}</td>
+        <td>{{ event.location }}</td>
+        <td>{{ event.county }}</td>
+        <!-- <td>{{ event.occupation }}</td> -->
+        <td>
+            <a href="{% url 'event' event.id %}">
+            {{ event.description }}
+            </a>
+        </td>
+    </tr>
+        {% empty %}
+        <li>No entry</li>
+    {% endfor %}
+</table>
+<!-- 
+<ul>
+    {% for event in events %}
+        <li> {{ event.date }}</li>
+        <li> {{ event.time }}</li>
+        <li> {{ event.location }}</li>
+        <li> {{ event.county }}</li>
+        <li> {{ event.occupation }}</li>
+        <li> {{ event.description }}</li>
+        <br />
+    {% empty %}
+        <li>No questions</li>
+    {% endfor %}
+</ul> -->
+{% endblock %}
+
+

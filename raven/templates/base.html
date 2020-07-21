@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'raven/css/base.css' %}">
+</head>
+<body>
+    <div class='wrapper'>
+        <div class="navbar">
+            <a href="/raven"> All Events </a>|
+            <a href="/raven/cities"> All Cities </a>
+        </div>
+    {% block content %} {% endblock %}
+    </div>
+</body>
+</html>
